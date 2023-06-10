@@ -8,7 +8,8 @@ Various discord bots I've made.
 Server where you can test them will be up and running soon.  
 
 Incoming :  
-  
-1. Translation bot 2.0 (AI powered)
-2. Music bot
-3. AI powered chatbots
+ 
+1. Transcript bot (whisper powered) 
+2. Translation bot 2.0 (AI powered)
+3. Music bot
+4. AI powered chatbots
