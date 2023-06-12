@@ -11,5 +11,6 @@ Incoming :
  
 1. Transcript bot (whisper powered) 
 2. Translation bot 2.0 (AI powered)
-3. Music bot
-4. AI powered chatbots
+3. Elvish translation bot
+4. Music bot
+5. AI powered chatbots
