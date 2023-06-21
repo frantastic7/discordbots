@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "discord": "^0.8.2",
+    "discord.js": "^14.11.0",
+    "openai": "^3.3.0"
+  },
+  "name": "elvish",
+  "description": "A discord bot that helps you learn the Elvish language of Sindarin.",
+  "version": "1.0.0",
+  "main": "deploy-commands.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
