@@ -10,4 +10,4 @@ Up-to-date prices
 Company profiles  
 Balance sheets   
 Income statements  
-
+AI powered evaluation of companies ( NOT FINANCAL ADVICE ! )
