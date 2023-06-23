@@ -1,5 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
-const dict = require("./eng_to_elv.json");
+const path = require('path');
+const dictpath = path.join(__dirname, '../../eng_to_elv.json');
+const dict = require(dictpath)
+
 
 module.exports = {
     data: new SlashCommandBuilder()
