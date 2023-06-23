@@ -1,7 +1,9 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { AttachmentBuilder } = require('discord.js');
 const axios = require('axios');
-const config = require('./config.json');
+const path = require('path');
+const configpath = path.join(__dirname, '../../config.json');
+const config = require(configpath)
 
 
 module.exports = {

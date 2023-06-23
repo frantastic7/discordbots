@@ -1,5 +1,7 @@
 require('dotenv').config();
-const config = require('./config.json');
+const path = require('path');
+const configpath = path.join(__dirname, '../../config.json');
+const config = require(configpath)
 const { SlashCommandBuilder } = require('discord.js');
 const { Configuration, OpenAIApi } = require("openai");
 const axios = require('axios');
