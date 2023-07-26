@@ -2,7 +2,7 @@
 
 A stock market bot, with the popular meme name.
 
-Using FMP and AlphaVantage API.
+Using FMP and AlphaVantage API and GPT-4.
 
 Currently supports :
 

@@ -40,17 +40,22 @@ module.exports = {
 
         price_data = price.data;
 
-            const response = await openai.createCompletion({
-              model: "text-davinci-003",
-              prompt: info + "\n" + JSON.stringify(balanceSheet) + "\n" + JSON.stringify(price_data),
-              temperature: 0.5,
-              max_tokens: 200,
-              top_p: 1.0,
-              frequency_penalty: 0.5,
-              presence_penalty: 0.0,
-              stop: ["You:"],
-            });
-            const completion = response.data.choices[0].text.trim();
+        const response = await openai.createChatCompletion({
+          model: "gpt-4-0613",
+          messages: [
+              {"role": "system", "content": "You are a helpful assistant."},
+              {"role": "user", "content": info},
+              {"role": "user", "content": JSON.stringify(balanceSheet)},
+              {"role": "user", "content": JSON.stringify(price_data)}
+          ],
+          temperature: 0.5,
+          max_tokens: 200,
+          top_p: 1.0,
+          frequency_penalty: 0.5,
+          presence_penalty: 0.0,
+      });
+      
+      const completion = response.data.choices[0].message['content'].trim();
             await interaction.editReply(completion);
           } catch (error) {
             console.error('Error:', error.message);
