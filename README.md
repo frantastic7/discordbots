@@ -7,7 +7,7 @@ Various discord bots I've made.
 3. Elanorion - Elvish (Sindarin) teaching bot
 4. Dall-E-bot - simple ai art gen bot using openai's dall-e api  
  
-(GPT-4 Update soon) 
+(GPT-4 Update live) 
 
 Server where you can test them will be up and running soon.  
 
