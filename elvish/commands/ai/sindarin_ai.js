@@ -4,10 +4,12 @@ const path = require('path');
 const dictpath = path.join(__dirname, '../../eng_to_elv.json');
 const dict = require(dictpath);
 
+
 const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
+
 const openai = new OpenAIApi(configuration);
 
 let preprompt = `You are Elanorion, a wise Elf scholar, who spends her life learning all the languages of men. You possess immense knowledge of the elvish language Sindarin and the human language of English. Today your task is to help a human. He has an old Sindarin dictionary where he can find translations for some words, but he needs your help to form sentences. He will provide you a sentence in English, alongside all the translation pairs he could find. It is up to you to use your knowledge of Sindarin grammar to help the human translate the sentence in its entirety, as truthfully to the original as possible.
@@ -40,21 +42,23 @@ module.exports = {
         translation_pairs += word + ':' + translatedWord + '\n';
       }
 
-      const response = await openai.createCompletion({
-        model: 'text-davinci-003',
-        prompt: preprompt + user_input + '\n' + translation_pairs,
+      const response = await openai.createChatCompletion({
+        model: "gpt-4-0613",
+        messages: [
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": preprompt},
+            {"role": "user", "content": user_input},
+            {"role": "user", "content": translation_pairs},
+        ],
         temperature: 0.7,
-        max_tokens: 256,
+        max_tokens: 512,
         top_p: 1.0,
         frequency_penalty: 0.5,
         presence_penalty: 0.0,
-        stop: ['You:'],
-      });
-
-
-
-
-      const completion = response.data.choices[0].text.trim();
+    });
+    
+    const completion = response.data.choices[0].message['content'].trim();
+    
       await interaction.reply(completion);
     } catch (error) {
       console.error('Error:', error.message);
