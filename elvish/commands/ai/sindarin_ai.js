@@ -45,8 +45,7 @@ module.exports = {
       const response = await openai.createChatCompletion({
         model: "gpt-4-0613",
         messages: [
-            {"role": "system", "content": "You are a helpful assistant."},
-            {"role": "user", "content": preprompt},
+            {"role": "system", "content": preprompt},
             {"role": "user", "content": user_input},
             {"role": "user", "content": translation_pairs},
         ],
